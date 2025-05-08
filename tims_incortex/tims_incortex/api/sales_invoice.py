@@ -346,7 +346,7 @@ def get_hs_code_item_tax(item_code, item_tax_template_name=None):
         if tax_row:
             return tax_row
 
-    # Fallback: Get first Item Tax record for item
+    # Fallback: Get first Item Tax record
     item_tax = frappe.get_all("Item Tax", filters={"parent": item_code}, fields=["tims_hscode"], limit=1)
     if item_tax and item_tax[0].tims_hscode:
         return item_tax[0].tims_hscode
